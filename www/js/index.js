@@ -72,6 +72,15 @@ var app = {
                 },
                 failure
             );
+
+            nfc.addMimeTypeListener('', app.onNfc,
+                function () { // success callback
+                    alert("Waiting for NDEF tag");
+                },
+                function (error) { // error callback
+                    alert("Error adding NDEF listener " + JSON.stringify(error));
+                }
+            );
         }
 
     },
